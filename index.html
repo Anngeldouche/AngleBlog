@@ -1,174 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="fr">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="pluginAssets/highlight.js/atom-one-light.css">
-    <title>Angleblog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page avec Widget</title>
     <style>
-      /* https://necolas.github.io/normalize.css/ */
-      html {
-        line-height: 1.15;
-        -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%;
-      }
-      body {
-        margin: 0;
-        font-size: 15px;
-        color: #32373F;
-        word-wrap: break-word;
-        line-height: 1.6em;
-        background-color: #ffffff;
-        font-family: 'Avenir Next', 'Avenir', 'Arial', sans-serif;
-        padding-bottom: 0px;
-        padding-top: 0px;
-      }
-      article, aside, footer, header, nav, section {
-        display: block;
-      }
-      h1 {
-        font-size: 2em;
-        margin: 0.67em 0;
-      }
-      hr {
-        box-sizing: content-box;
-        height: 0;
-        overflow: visible;
-      }
-      pre {
-        font-family: monospace, monospace;
-        font-size: 1em;
-      }
-      a {
-        background-color: transparent;
-        -webkit-text-decoration-skip: objects;
-      }
-      b, strong {
-        font-weight: bolder;
-      }
-      small {
-        font-size: 80%;
-      }
-      img {
-        border-style: none;
-      }
-      kbd {
-        border: 1px solid rgb(220, 220, 220);
-        box-shadow: inset 0 -1px 0 rgb(220, 220, 220);
-        padding: 2px 4px;
-        border-radius: 3px;
-        background-color: rgb(243, 243, 243);
-      }
-      :root {
-        --scrollbar-size: 7px;
-      }
-      ::-webkit-scrollbar {
-        width: var(--scrollbar-size);
-        height: var(--scrollbar-size);
-      }
-      ::-webkit-scrollbar-thumb {
-        border-radius: calc(var(--scrollbar-size) / 2);
-      }
-      ::-webkit-scrollbar-corner {
-        background: none;
-      }
-      ::-webkit-scrollbar-track {
-        border: none;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: rgba(100, 100, 100, 0.3);
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-track:hover {
-        background: rgba(0, 0, 0, 0.1);
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(100, 100, 100, 0.7);
-      }
+        /* CSS directement dans la balise <style> pour plus de simplicité */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-      /* Remove top padding and margin from first child so that top of rendered text is aligned to top of text editor text */
-      #rendered-md > h1:first-child,
-      #rendered-md > h2:first-child,
-      #rendered-md > h3:first-child,
-      #rendered-md > h4:first-child,
-      #rendered-md > ul:first-child,
-      #rendered-md > ol:first-child,
-      #rendered-md > table:first-child,
-      #rendered-md > blockquote:first-child,
-      #rendered-md > img:first-child,
-      #rendered-md > p:first-child {
-        margin-top: 0;
-        padding-top: 0;
-      }
+        #widget-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            height: 200px;
+        }
 
-      p, h1, h2, h3, h4, h5, h6, ul, table {
-        margin-top: 0.6em;
-        margin-bottom: 1.35em;
-        unicode-bidi: plaintext;
-      }
+        #widget-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
 
-      h1, h2, h3, h4, h5, h6, ul, table {
-        margin-bottom: 0.65em;
-      }
+        #widget-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
 
-      h1, h2, h3, h4, h5, h6 {
-        line-height: 1.5em;
-      }
-      h1 {
-        font-size: 1.5em;
-        font-weight: bold;
-        border-bottom: 1px solid #dddddd;
-        padding-bottom: 0.3em;
-      }
-      h2 {
-        font-size: 1.3em;
-        font-weight: bold;
-        padding-bottom: 0.1em;
-      }
-      h3 {
-        font-size: 1.1em;
-        font-weight: bold;
-      }
-      h4, h5, h6 {
-        font-size: 1em;
-        font-weight: bold;
-      }
+        #widget-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="widget-container">
+        <div id="widget-header">Mon Widget</div>
+        <div id="widget-text">Bienvenue sur mon site !</div>
+    </div>
 
-      .exported-note-title {
-        font-size: 2em;
-        font-weight: bold;
-        margin-bottom: 0.8em;
-        line-height: 1.5em;
-        padding-bottom: 0.35em;
-        border-bottom: 1px solid #dddddd;
-      }
-
-      a {
-        color: #155BDA;
-      }
-      ul, ol {
-        padding-left: 0;
-        margin-left: 1.7em;
-      }
-      li {
-        margin-bottom: 0.4em;
-      }
-      li p {
-        margin-top: 0.2em;
-        margin-bottom: 0;
-      }
-
-      .resource-icon {
-        display: inline-block;
-        position: relative;
-        top: 0.3em;
-        text-decoration: none;
-        width: 1.2em;
-        height: 1.4em;
-        margin-right: 0.4em;
-        background-color: #155BDA;
-      }
-
-      /* Icons */
-      .fa-joplin {
-        -webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M373.834 128C168.227 128 0 296.223 0 501.834v788.336C0 1495.778 168.227 1664 373.834 1664h788.336c205.608 0 373.83-168.222 373.83-373.83V501.834C1536 296.224 1367.778 128 1162.17 128zm397.222 205.431h417.424a7.132 7.132 0 0 1 7.132 7.133v132.552c0 4.461-3.619 8.073-8.077 8.073h-57.23c-24.168 0-43.768 19.338-44.284 43.374v2.377h-.017v136.191h-.053l-.466 509.375c-5.02 77.667-39.222 149.056-96.324 201.046-60.28 54.834-141.948 85.017-229.962 85.017-12.45 0-25.208-.61-37.907-1.785-92.157-8.682-181.494-48.601-251.662-112.438-71.99-65.517-117.147-150.03-127.164-238-11.226-98.763 23.42-192.783 95.045-257.937 81.99-74.637 198.185-101.768 316.613-75.704 5.574 1.227 9.55 6.282 9.55 11.997v199.52c-.199 2.625-1.481 6.599-8.183 2.896-.663-.365-1.194-.511-1.653-.531-21.987-10.587-45.159-17.57-68.559-19.916-.38-.04-.757-.124-1.138-.163-.537-.048-1.034-.033-1.556-.075-4.13-.354-8.183-.517-12.203-.58-.87-.011-1.771-.127-2.641-.127-.486 0-.951.05-1.437.057-1.464.011-2.886.115-4.33.163-2.76.102-5.497.211-8.182.448-.273.024-.547.07-.835.097-25.509 2.4-47.864 11.104-65.012 25.47-.954.802-1.974 1.53-2.9 2.36a1.34 1.34 0 0 1-.168.146c-23.96 21.8-34.881 53.872-30.726 90.316 4.62 40.737 26.94 81.156 62.841 113.823 35.908 32.67 80.335 52.977 125.113 57.186 35.118 3.36 66.547-3.919 
+    <script>
+        // Animation du texte après le chargement
+        window.onload = function() {
+            const widgetText = document.getElementById("widget-text");
+            setTimeout(function() {
+                widgetText.classList.add("show");
+            }, 500); // Animation après 500ms
+        };
+    </script>
+</body>
+</html>
