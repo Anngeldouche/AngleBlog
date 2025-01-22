@@ -80,7 +80,26 @@
     <!-- Formulaire du mot de passe centré -->
     <div class="mot-de-passe">
         <input type="password" id="password" name="password" required>
-        <button type="submit">Se connecter</button>
+        <button type="submit" onclick="verifierMotDePasse()">Se connecter</button>
     </div>
+
+    <script>
+        // Le mot de passe correct
+        var motDePasseCorrect = "laissezmoipasserjesuisvip";
+
+        // Fonction pour vérifier le mot de passe
+        function verifierMotDePasse() {
+            var motDePasseSaisi = document.getElementById("password").value;
+            
+            // Si le mot de passe est correct
+            if (motDePasseSaisi === motDePasseCorrect) {
+                // Redirection vers la nouvelle page
+                window.location.href = "https://anngeldouche.github.io/AngleBlogTest/";
+            } else {
+                // Si le mot de passe est incorrect, effacer la saisie
+                document.getElementById("password").value = "";
+            }
+        }
+    </script>
 </body>
 </html>
