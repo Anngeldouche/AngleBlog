@@ -3,109 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page avec Widget</title>
+    <title>Page avec Mot de Passe</title>
     <style>
+        /* Page rose de fond */
         body {
+            background-color: #f8c8d8; /* Fond rose */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            position: relative;
         }
 
-        #widget-container {
-            background-color: white;
-            border-radius: 10px;
+        /* Style pour la messagerie en bas à droite (Tawk.to) */
+        .messagerie {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* Formulaire du mot de passe centré */
+        .mot-de-passe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
-        #widget-header {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        #widget-text {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        #widget-text.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Formulaire pour le mot de passe */
-        .password-form {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .password-form input[type="password"] {
+        .mot-de-passe input {
+            width: 200px;
             padding: 10px;
-            font-size: 1em;
+            margin-bottom: 15px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            margin-bottom: 10px;
-            width: 200px;
         }
 
-        .password-form button {
+        .mot-de-passe button {
             padding: 10px 20px;
-            font-size: 1em;
-            background-color: #007bff;
+            background-color: #ff66b2;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
-        .password-form button:hover {
-            background-color: #0056b3;
+        .mot-de-passe button:hover {
+            background-color: #ff3385;
         }
     </style>
 </head>
 <body>
-    <div id="widget-container">
-        <div id="widget-header">Mon Widget</div>
-        <div id="widget-text">Bienvenue sur mon site !</div>
-
-        <!-- Formulaire de mot de passe -->
-        <div class="password-form">
-            <input type="password" id="password" placeholder="Entrez votre mot de passe">
-            <button onclick="checkPassword()">Valider</button>
-        </div>
+    <!-- Ton script de messagerie Tawk.to intact -->
+    <div class="messagerie">
+        <!-- Start of Tawk.to Script -->
+        <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/679017393a84273260728b10/1ii5dleg4';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!-- End of Tawk.to Script -->
     </div>
 
-    <script>
-        // Animation du texte après le chargement
-        window.onload = function() {
-            const widgetText = document.getElementById("widget-text");
-            setTimeout(function() {
-                widgetText.classList.add("show");
-            }, 500); // Animation après 500ms
-        };
-
-        // Fonction pour vérifier le mot de passe
-        function checkPassword() {
-            const enteredPassword = document.getElementById("password").value;
-            const correctPassword = "Laissezmoipasserjesuisvip";  // Nouveau mot de passe
-            if (enteredPassword === correctPassword) {
-                window.location.href = "page_secrète.html";  // Rediriger vers une autre page
-            } else {
-                alert("Mot de passe incorrect !");
-            }
-        }
-    </script>
+    <!-- Formulaire du mot de passe centré -->
+    <div class="mot-de-passe">
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Se connecter</button>
+    </div>
 </body>
 </html>
