@@ -3,69 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page avec Widget</title>
+    <title>Page avec Tawk</title>
     <style>
-        /* Mise en place du fond rose pour la page */
         body {
-            font-family: Arial, sans-serif;
+            background-color: #f8d0d0; /* Rose pâle */
             margin: 0;
             padding: 0;
-            background-color: #ffcccb; /* Rose clair */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: relative; /* Pour positionner le widget par rapport au body */
-        }
-
-        /* Style du widget */
-        #widget-container {
-            position: fixed;
-            bottom: 20px; /* Positionné à 20px du bas */
-            right: 20px; /* Positionné à 20px de la droite */
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-            height: 200px;
-        }
-
-        #widget-header {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        #widget-text {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        #widget-text.show {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div id="widget-container">
-        <div id="widget-header">Mon Widget</div>
-        <div id="widget-text">Bienvenue sur mon site !</div>
-    </div>
-
-    <script>
-        // Animation du texte après le chargement
-        window.onload = function() {
-            const widgetText = document.getElementById("widget-text");
-            setTimeout(function() {
-                widgetText.classList.add("show");
-            }, 500); // Animation après 500ms
-        };
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/679017393a84273260728b10/1ii5dleg4';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
     </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
+	
