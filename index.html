@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page avec Mot de Passe</title>
     <style>
-        /* Page rose de fond */
+        /* Fond avec images en boucle couvrant toute la taille de l'écran */
         body {
-            background-color: #f8c8d8; /* Fond rose */
+            background-image: url('main/image1.png'), url('main/image2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat; /* Pour que les images soient en boucle */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -31,7 +34,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -80,7 +83,26 @@
     <!-- Formulaire du mot de passe centré -->
     <div class="mot-de-passe">
         <input type="password" id="password" name="password" required>
-        <button type="submit">Se connecter</button>
+        <button type="submit" onclick="verifierMotDePasse()">Se connecter</button>
     </div>
+
+    <script>
+        // Le mot de passe correct
+        var motDePasseCorrect = "laissezmoipasserjesuisvip";
+
+        // Fonction pour vérifier le mot de passe
+        function verifierMotDePasse() {
+            var motDePasseSaisi = document.getElementById("password").value;
+            
+            // Si le mot de passe est correct
+            if (motDePasseSaisi === motDePasseCorrect) {
+                // Redirection vers la nouvelle page
+                window.location.href = "https://anngeldouche.github.io/AngleBlogTest/";
+            } else {
+                // Si le mot de passe est incorrect, effacer la saisie
+                document.getElementById("password").value = "";
+            }
+        }
+    </script>
 </body>
 </html>
