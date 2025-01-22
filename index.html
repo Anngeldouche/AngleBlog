@@ -3,29 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page avec Tawk</title>
+    <title>Page avec Widget</title>
     <style>
         body {
-            background-color: #f8d0d0; /* Rose pâle */
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #widget-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            height: 200px;
+        }
+
+        #widget-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        #widget-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        #widget-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Formulaire pour le mot de passe */
+        .password-form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .password-form input[type="password"] {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+
+        .password-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .password-form button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/679017393a84273260728b10/1ii5dleg4';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
+    <div id="widget-container">
+        <div id="widget-header">Mon Widget</div>
+        <div id="widget-text">Bienvenue sur mon site !</div>
+
+        <!-- Formulaire de mot de passe -->
+        <div class="password-form">
+            <input type="password" id="password" placeholder="Entrez votre mot de passe">
+            <button onclick="checkPassword()">Valider</button>
+        </div>
+    </div>
+
+    <script>
+        // Animation du texte après le chargement
+        window.onload = function() {
+            const widgetText = document.getElementById("widget-text");
+            setTimeout(function() {
+                widgetText.classList.add("show");
+            }, 500); // Animation après 500ms
+        };
+
+        // Fonction pour vérifier le mot de passe
+        function checkPassword() {
+            const enteredPassword = document.getElementById("password").value;
+            const correctPassword = "Laissezmoipasserjesuisvip";  // Nouveau mot de passe
+            if (enteredPassword === correctPassword) {
+                window.location.href = "page_secrète.html";  // Rediriger vers une autre page
+            } else {
+                alert("Mot de passe incorrect !");
+            }
+        }
     </script>
-    <!--End of Tawk.to Script-->
 </body>
 </html>
-	
