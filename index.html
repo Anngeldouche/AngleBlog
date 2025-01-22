@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page avec Mot de Passe</title>
     <style>
-        /* Fond avec images en boucle couvrant toute la taille de l'écran */
+        /* Page rose de fond avec les deux images superposées */
         body {
-            background-image: url('main/image1.png'), url('main/image2.png');
+            background-image: url('https://raw.githubusercontent.com/Anngeldouche/AngleBlog/main/Image1.png'), url('https://raw.githubusercontent.com/Anngeldouche/AngleBlog/main/Image2.png');
             background-size: cover;
             background-position: center;
-            background-repeat: repeat; /* Pour que les images soient en boucle */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* L'image de fond reste fixe lors du défilement */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -34,7 +35,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+            background-color: rgba(255, 255, 255, 0.8); /* Fond légèrement transparent */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
